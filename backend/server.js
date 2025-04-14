@@ -3,9 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import {v2 as cloudinary} from 'cloudinary';
 
-import authRoutes from './routes/auth.routes.js';
-import userRoutes from './routes/user.routes.js';
-import postRoutes from './routes/post.routes.js';
+import authRoutes from './routes/auth.route.js';
+import userRoutes from './routes/user.route.js';
+import postRoutes from './routes/post.route.js';
+import notificationRoutes from './routes/notification.route.js';
 
 import connectDB from './config/connectDB.js';
 import cookieParser from 'cookie-parser';
@@ -31,6 +32,7 @@ const PORT = process.env.PORT || 5000;
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/posts", postRoutes)
+app.use("/api/notifications", notificationRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
