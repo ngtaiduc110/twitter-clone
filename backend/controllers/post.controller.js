@@ -174,7 +174,7 @@ export const getFollowingPosts = async (req, res) => {
             return res.status(404).json({ error: "User not found" })
         }
         const followingUsers = user.following
-        const feedPosts = await Post.find({user: {$in: following}}).sort({createdAt: -1})
+        const feedPosts = await Post.find({user: {$in: followingUsers}}).sort({createdAt: -1})
         .populate({
             path: "user",
             select: "-password",
